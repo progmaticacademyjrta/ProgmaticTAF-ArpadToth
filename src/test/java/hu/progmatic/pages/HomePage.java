@@ -3,6 +3,7 @@ package hu.progmatic.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
@@ -21,5 +22,11 @@ public class HomePage {
         WebElement headerElement = driver.findElement(headerBy);
         Assert.assertTrue(headerElement.isDisplayed());
         System.out.println("Homepage loaded properly.");
+
+    }
+
+    public void isClickable(){
+        WebElement makeAppointment = wait.until(ExpectedConditions.elementToBeClickable(By.id("btn-make-appointment")));
+        Assert.assertTrue(makeAppointment.isDisplayed(),"Appointment is displayed");
     }
 }
